@@ -13,6 +13,16 @@ public class Category {
     public Category(String name, String image) {
         Name = name;
         Image = image;
+
+    }
+    @PropertyName("Name")
+    public void setName(String name) {
+        Name = name;
+    }
+
+    @PropertyName("Image")
+    public void setImage(String image) {
+        Image = image;
     }
 
     @PropertyName("Name")
