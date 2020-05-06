@@ -122,8 +122,10 @@ public class Home extends AppCompatActivity {
 //                    startActivity(cartInt
                 }
                 else if(menuItem.getItemId() == R.id.nav_orders){
-//                    Intent orderIntent = new Intent(Home.this, OrderStatus.class);
-//                    startActivity(orderIntent);
+
+                    Intent orders = new Intent(Home.this, OrderStatus.class);
+                    startActivity(orders);
+
                 }  else if(menuItem.getItemId() == R.id.nav_log_out){
 //                    Intent signIn = new Intent(Home.this, SignIn.class);
 //                    signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

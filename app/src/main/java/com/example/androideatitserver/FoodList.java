@@ -278,7 +278,6 @@ public class FoodList extends AppCompatActivity {
 
     //Update/Delete
 
-
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
 
