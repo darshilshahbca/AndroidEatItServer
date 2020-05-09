@@ -12,6 +12,7 @@ import com.example.androideatitserver.Interface.ItemClickListener;
 import com.example.androideatitserver.R;
 
 public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
+//                            View.OnLongClickListener,
                             View.OnCreateContextMenuListener{
 
     public TextView txtOrderId, txtOrderStatus, txtOrderPhone, txtOrderAddress;
@@ -27,6 +28,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         txtOrderPhone = (TextView)itemView.findViewById(R.id.order_phone);
 
         itemView.setOnCreateContextMenuListener(this);
+//        itemView.setOnLongClickListener(this); //Commented as Custom Code Added for Single Click
         itemView.setOnClickListener(this);
 
     }
@@ -46,5 +48,12 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         menu.add(0, 0, getAdapterPosition(), Common.UPDATE);
         menu.add(0, 0, getAdapterPosition(), Common.DELETE);
     }
+
+//    @Override
+//    public boolean onLongClick(View view) {
+//        itemClickListener.onClick(view, getAdapterPosition(), true);
+//
+//        return true;
+//    }
 }
 
