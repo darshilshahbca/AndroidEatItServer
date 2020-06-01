@@ -43,6 +43,12 @@ public class OrderStatus extends AppCompatActivity {
         loadOrders();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
     private void showUpdateDialog(String key, final Request item) {
         final AlertDialog.Builder alertDialog =
                 new AlertDialog.Builder(OrderStatus.this);

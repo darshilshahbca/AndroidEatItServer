@@ -131,7 +131,12 @@ public class Home extends AppCompatActivity {
                     Intent orders = new Intent(Home.this, OrderStatus.class);
                     startActivity(orders);
 
-                }  else if(menuItem.getItemId() == R.id.nav_log_out){
+                } else if(menuItem.getItemId() == R.id.nav_banner){
+
+                    Intent banner = new Intent(Home.this, BannerActivity.class);
+                    startActivity(banner);
+
+                } else if(menuItem.getItemId() == R.id.nav_log_out){
 //                    Intent signIn = new Intent(Home.this, SignIn.class);
 //                    signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //                    startActivity(signIn);
@@ -199,7 +204,8 @@ public class Home extends AppCompatActivity {
                 dialog.dismiss();
 
                 //Here, Just new Category
-                if(newCategory!=null){
+                if(newCategory!=null)
+                {
                     categories.push().setValue(newCategory);
                     Snackbar.make(drawerLayout, "New category " + newCategory.getName() + " was added", Snackbar.LENGTH_SHORT)
                             .show();
@@ -284,6 +290,12 @@ public class Home extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
     private void loadMenu() {
         FirebaseRecyclerOptions<Category> options =
                 new FirebaseRecyclerOptions.Builder<Category>()
@@ -366,7 +378,6 @@ public class Home extends AppCompatActivity {
 
             }
         });
-
 
         categories.child(key).removeValue();
         Toast.makeText(this, "Item Deleted!!", Toast.LENGTH_SHORT).show();
